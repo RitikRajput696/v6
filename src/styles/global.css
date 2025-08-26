@@ -1,0 +1,49 @@
+@import "tailwindcss";
+
+@theme {
+  /* Colors */
+  --color-terminal-bg: #0d1117;
+  --color-terminal-card: #161b22;
+  --color-terminal-border: #30363d;
+  --color-terminal-text: #c9d1d9;
+  --color-terminal-muted: #8b949e;
+  --color-terminal-accent: #58a6ff;
+  --color-terminal-green: #00ff00;
+
+  /* Font Family */
+  --font-family-mono: Consolas, Monaco, "Courier New", monospace;
+
+  /* Animations */
+  --animate-blink: blink 1s infinite;
+  --animate-fade-in-up: fadeInUp 0.6s ease forwards;
+  --animate-matrix: matrix 20s linear infinite;
+}
+
+/* Keyframes */
+@keyframes blink {
+  0%,
+  50% {
+    opacity: 1;
+  }
+  51%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes matrix {
+  /* Add your matrix keyframes here */
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100vh);
+  }
+}
