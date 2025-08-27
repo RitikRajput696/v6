@@ -1,5 +1,58 @@
 ---
+import ProjectCard from "./ProjectCard.astro";
 
+const projectsData = [
+  {
+    title: "TRACCY",
+    tech: ["Next.js", "TypeScript", "CanvasAPI"],
+    description:
+      "A dynamic, web-based whiteboarding application developed from the ground up using React. Features FreeHand Drawing, Rectangle, Ellipse tools, tool sizing, and color picking capabilities.",
+    links: {
+      live: "https://traccy-draw.vercel.app",
+      code: "https://github.com/ritikrajput696/traccy",
+    },
+  },
+  {
+    title: "YTPLENC",
+    tech: ["JavaScript", "YouTube API"],
+    description:
+      "YouTube Playlist Length Calculator that extracts total video duration from playlist links using YouTube API. Formats durations for better user readability and provides instant playlist analytics.",
+    links: {
+      live: "https://ytplenc.vercel.app",
+      code: "https://github.com/ritikrajput696/ytplenc",
+    },
+  },
+  {
+    title: "markdown-editor",
+    tech: ["React", "Vercel"],
+    description:
+      "Live markdown editor with comprehensive support for headers, lists, code blocks, and more formatting options. Built with React and deployed via Vercel for seamless real-time editing experience.",
+    links: {
+      live: "https://markdown-editor-1.vercel.app/",
+      code: "https://github.com/ritikrajput696/markdown-editor",
+    },
+  },
+  {
+    title: "CHOPURL",
+    tech: ["Next.js", "TypeScript", "Supabase", "Drizzle ORM"],
+    description:
+      "A full-stack URL shortener web application built with modern tech stack. Features custom short links, analytics tracking, and database management with Drizzle ORM.",
+    links: {
+      live: "https://chopurl-best.vercel.app",
+      code: "https://github.com/ritikrajput696/chopurl",
+    },
+  },
+  {
+    title: "Portfolio Site",
+    tech: ["Astro", "Tailwind CSS"],
+    description:
+      "Responsive portfolio website with minimal hacking theme featuring blogs and projects section. Adapts seamlessly across desktop, tablet, and mobile devices with optimized performance.",
+    links: {
+      live: "https://ritikrajput.vercel.app",
+      code: "https://github.com/ritikrajput696/v6",
+    },
+  },
+];
 ---
 
 <section
@@ -12,81 +65,6 @@
     projects
   </h2>
   <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-    <!-- Project Card 1 -->
-    <div
-      class="project-card relative bg-terminal-card border border-terminal-border rounded-lg p-6 transition-all duration-300 hover:-translate-y-2 hover:border-terminal-green hover:shadow-xl hover:shadow-terminal-green/10 overflow-hidden"
-    >
-      <div class="text-terminal-accent text-xl mb-2">neural-chat</div>
-      <div class="text-terminal-green text-sm mb-4">
-        [Python, PyTorch, FastAPI]
-      </div>
-      <div class="text-terminal-muted mb-4 leading-relaxed">
-        A real-time chat application with AI-powered message analysis and
-        sentiment detection. Features end-to-end encryption and custom neural
-        networks for content moderation.
-      </div>
-      <div class="space-x-4 text-sm">
-        <a
-          href="#"
-          class="text-terminal-accent hover:text-terminal-green transition-colors"
-          >[github]</a
-        >
-        <a
-          href="#"
-          class="text-terminal-accent hover:text-terminal-green transition-colors"
-          >[demo]</a
-        >
-      </div>
-    </div>
-
-    <!-- Project Card 2 -->
-    <div
-      class="project-card relative bg-terminal-card border border-terminal-border rounded-lg p-6 transition-all duration-300 hover:-translate-y-2 hover:border-terminal-green hover:shadow-xl hover:shadow-terminal-green/10 overflow-hidden"
-    >
-      <div class="text-terminal-accent text-xl mb-2">blockchain-audit</div>
-      <div class="text-terminal-green text-sm mb-4">[Rust, Solidity, Web3]</div>
-      <div class="text-terminal-muted mb-4 leading-relaxed">
-        Automated smart contract vulnerability scanner that detected over 200
-        security issues across DeFi protocols. Built with custom static analysis
-        engine.
-      </div>
-      <div class="space-x-4 text-sm">
-        <a
-          href="#"
-          class="text-terminal-accent hover:text-terminal-green transition-colors"
-          >[github]</a
-        >
-        <a
-          href="#"
-          class="text-terminal-accent hover:text-terminal-green transition-colors"
-          >[whitepaper]</a
-        >
-      </div>
-    </div>
-
-    <!-- Project Card 3 -->
-    <div
-      class="project-card relative bg-terminal-card border border-terminal-border rounded-lg p-6 transition-all duration-300 hover:-translate-y-2 hover:border-terminal-green hover:shadow-xl hover:shadow-terminal-green/10 overflow-hidden"
-    >
-      <div class="text-terminal-accent text-xl mb-2">distributed-cache</div>
-      <div class="text-terminal-green text-sm mb-4">[Go, Redis, Docker]</div>
-      <div class="text-terminal-muted mb-4 leading-relaxed">
-        High-performance distributed caching system with automatic sharding,
-        replication, and failover. Handles 100k+ requests per second with
-        sub-millisecond latency.
-      </div>
-      <div class="space-x-4 text-sm">
-        <a
-          href="#"
-          class="text-terminal-accent hover:text-terminal-green transition-colors"
-          >[github]</a
-        >
-        <a
-          href="#"
-          class="text-terminal-accent hover:text-terminal-green transition-colors"
-          >[benchmarks]</a
-        >
-      </div>
-    </div>
+    {projectsData.map((project) => <ProjectCard project={project} />)}
   </div>
 </section>

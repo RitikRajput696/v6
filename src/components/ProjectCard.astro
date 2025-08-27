@@ -1,0 +1,62 @@
+---
+interface ProjectLink {
+  [key: string]: string;
+}
+
+interface Project {
+  title: string;
+  tech: string[];
+  description: string;
+  links: ProjectLink;
+}
+
+interface Props {
+  project: Project;
+}
+
+const { project }: Props = Astro.props;
+const techStack = project.tech.join(", ");
+const linkEntries = Object.entries(project.links);
+---
+
+<div
+  class="project-card relative bg-terminal-card border border-terminal-border rounded-lg p-6 transition-all duration-300 hover:-translate-y-2 hover:border-terminal-green hover:shadow-xl hover:shadow-terminal-green/10 overflow-hidden"
+>
+  <div class="text-terminal-accent text-xl mb-2">{project.title}</div>
+  <div class="text-terminal-green text-sm mb-4">
+    [{techStack}]
+  </div>
+  <div class="text-terminal-muted mb-4 leading-relaxed">
+    {project.description}
+  </div>
+  <div class="space-x-4 text-sm">
+    {
+      linkEntries.map(([label, url]) => (
+        <a
+          href={url}
+          class="text-terminal-accent hover:text-terminal-green transition-colors"
+        >
+          [{label}]
+        </a>
+      ))
+    }
+  </div>
+</div>
+
+<style>
+  .project-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, #00ff00, #58a6ff);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+  }
+
+  .project-card:hover::before {
+    transform: scaleX(1);
+  }
+</style>
